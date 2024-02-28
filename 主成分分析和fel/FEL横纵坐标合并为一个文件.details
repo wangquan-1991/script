@@ -1,0 +1,2 @@
+paste dist1_wt.dat rmsd_ABL.dat > FEL_1.datt
+awk '{printf "%6d %15.4f %15.4f\n",$3,$2,$4}' FEL_1.datt > FEL_1.dattt

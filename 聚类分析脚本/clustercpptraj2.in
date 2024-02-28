@@ -1,0 +1,14 @@
+trajin ../md1.nc 1 10000 10
+strip :WAT
+strip :Na+
+cluster C0 \
+        hieragglo clusters 5 averagelinkage \
+        rms :21-29@CA,42@CA,62-72@CA,86-91@CA,127-155@CA \
+        out cnumvtime.dat \
+        sil Sil \
+        summary summary.dat \
+        info info.dat \
+        cpopvtime cpopvtime.agr normframe \
+        repout rep repfmt pdb \
+        singlerepout singlerep.nc singlerepfmt netcdf \
+        avgout Avg avgfmt restart

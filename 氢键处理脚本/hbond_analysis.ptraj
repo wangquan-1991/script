@@ -1,0 +1,92 @@
+###Load trajectoris###
+#trajin md1.mdcrd
+#trajin md2.mdcrd
+#trajin md3.mdcrd
+#trajin md4.mdcrd
+#trajin md5.mdcrd
+#trajin md6.mdcrd
+#trajin md7.mdcrd
+#trajin md8.mdcrd
+trajin md-40ns.mdcrd
+strip :Cl-
+strip :WAT
+######################################
+#-- Donors from amino acids sidechains
+######################################
+donor mask :GLN@OE1
+donor mask :GLN@NE2
+donor mask :ASN@OD1
+donor mask :ASN@ND2
+donor mask :TYR@OH
+donor mask :ASP@OD1
+donor mask :ASP@OD2
+donor mask :GLU@OE1
+donor mask :GLU@OE2
+donor mask :SER@OG
+donor mask :THR@OG1
+donor mask :HIS@ND1
+donor mask :HIE@ND1
+donor mask :HID@NE2
+donor mask :5RI@NAO
+donor mask :5RI@NAM
+donor mask :5RI@NAN
+donor mask :5RI@NAQ
+donor mask :5RI@NAR
+donor mask :5RI@NAP
+donor mask :5RI@OAE
+#donor mask :LZ1@N
+#donor mask :LZ1@N2
+#######################################
+#--Acceptors from animo acid sidechains
+#######################################
+acceptor mask  :ASN@ND2 :ASN@HD21
+acceptor mask  :ASN@ND2 :ASN@HD22
+acceptor mask  :TYR@OH  :TYR@HH
+acceptor mask  :GLN@NE2 :GLN@HE21
+acceptor mask  :GLN@NE2 :GLN@HE22
+acceptor mask  :TRP@NE1 :TRP@HE1
+acceptor mask  :LYS@NZ  :LYS@HZ1
+acceptor mask  :LYS@NZ  :LYS@HZ2
+acceptor mask  :LYS@NZ  :LYS@HZ3
+acceptor mask  :SER@OG  :SER@HG
+acceptor mask  :THR@OG1 :THR@HG1
+acceptor mask  :ADG@NH2 :ADG@HH21
+acceptor mask  :ADG@NH2 :ADG@HH22
+acceptor mask  :ADG@NH1 :ADG@HH11
+acceptor mask  :ADG@NH1 :ADG@HH12
+acceptor mask  :ADG@NE  :ADG@HE
+acceptor mask  :HIS@NE2 :HIS@HE2
+acceptor mask  :HIE@NE2 :HIE@HE2
+acceptor mask  :HID@ND1 :HID@HD1
+acceptor mask  :5RI@NAQ :5RI@H2
+acceptor mask  :5RI@NAR :5RI@H14
+acceptor mask  :5RI@NAP :5RI@H19
+#acceptor mask  :HIP@ND1,NE2 :HIP@HE2,HD1
+#acceptor mask  :LZ1@N,N2
+###########################################################
+#-- Backbone donors and acceptors for amino acid sidechains
+#   N-H for prolines do not exist so are not in the mask
+###########################################################
+donor mask @O
+acceptor mask  :2-29,31-32,34-66,68-79,81-170,172-176,178-207,209-227,229,232-233,236-248,250-252,254-270@N:2-270@H
+#############################################
+#-Terminal residues have different atom names
+#############################################
+donor mask @OXT
+acceptor mask :1@N :1@H1
+acceptor mask :1@N :1@H2
+acceptor mask :1@N :1@H3
+
+############################################################################################
+#--Specify distance and angle cutoff of H-bond, in this case, set to 3.5 and 120 repectively. 
+#--To print out information related to time series, keyword "series" is to be included.
+############################################################################################
+hbond distance 3.5 angle 120 print .05 series hbt
+
+############################################################################################
+#--In addition, water or/and ions interacting with a particular donor or acceptor can be also 
+#--keeped track of. Refer to documentation of hydrogen bonding facility in AmberTools manual!
+############################################################################################
+#hbond distance 3.5 angle 120 solventneighbor 6 solventdonor WAT O solventacceptor WAT O H1 solventacceptor WAT O H2
+#hbond distance 3.5 angle 120 solventneighbor 6 solventdonor Na+ Na+ solventacceptor Na+ Na+ Na+ 
+#hbond distance 3.5 angle 120 solventneighbor 6 solventdonor Cl- Cl- solventacceptor Cl- Cl- Cl-

@@ -1,0 +1,7 @@
+/^\|/ {
+	if($2<5944 && $7>5944) 
+		print $0
+	else if($2>5944 && $7<5944)
+		print $0
+}
+#awk -f awk_script hbond.dat > hbondanalysis.out

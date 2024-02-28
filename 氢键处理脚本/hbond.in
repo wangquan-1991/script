@@ -1,0 +1,3 @@
+trajin ../md1.nc 5001 20000
+hbond HB1 :1-451 out nhb1.dat dist 3.5 angle 135 nointramol
+hbond HB2 :1-451 out nhb2.dat avgout avghb.dat dist 3.5 angle 135 #series uuseries uuhbonds.dat

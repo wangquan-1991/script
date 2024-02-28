@@ -1,0 +1,4 @@
+trajin md5-8.mdcrd
+strip :WAT
+strip :Cl-
+cluster out PHM16_cluster representative pdb average pdb averagelinkage clusters 5 rms @CA

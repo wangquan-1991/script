@@ -1,0 +1,7 @@
+trajin md6.mdcrd
+trajin md7.mdcrd
+trajin md8.mdcrd
+strip :WAT
+strip :Cl-
+#distance end_to_end :86@CE1,CE2,CD1,CD2,CG,CZ :448@CE1,CE2,CD1,CD2,CG,CZ out 86_448_366C.list time 2.0
+distance end_to_end :151@CG,CD1,CE1,CZ,CE2,CD2 :272@CAZ,CAI,CAF,CAG,CAJ,CBC out Phe151_PHM16.dat time 2.0

@@ -1,0 +1,5 @@
+trajin md6.mdcrd
+trajin md7.mdcrd
+trajin md8.mdcrd
+rms first out bb.rmsd :1-271@CA,C,N time 2
+atomicfluct out rmsf_36-40ns.dat :1-272@CA

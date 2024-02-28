@@ -1,0 +1,175 @@
+#############################################################################
+#--This H-bonding analysis script is created based on one script available
+#--on the wed targeting h-bond formation of protein and DNA, first, whose
+#--original writer should be appreciated !
+#--
+#--This enhanced script modified by me is able to capture all the donors &
+#--acceptors of standard residues from protein-protein, protein-DNA as well
+#--as protein and RNA in principle.
+#--
+#--Usage:
+#--For protein-RNA: Actually, this script is exactly applicable to pro-RNA!
+#--For protein-DNA: Please comment corresponding lines related to 2'OH in
+#                   RNA, also,remember to substitute DG for RG (for instance)
+#--For protein-protein: Just need to comment all the line regarding DNA/RNA.
+#--
+#--Some issues are inevitable even though I have checked it many times.Please
+#--feel free to contact me in either following ways for useful discussion:
+#--E-mail: vip_zzc@emails.bjut.edu.cn
+#--    QQ: 350 2826 89
+#--                                        Written by Zhicheng Zuo, 5/3/2011
+#############################################################################
+
+
+
+######### laod trajectory ############
+######################################
+trajin /public1/zhx04g/zhangxue/GROMACS/3u6y/MD10ns/300K/prod10ns300K.mdcrd 1 5000 5
+strip :WAT
+strip :Na+
+######################################
+#-- Donors from amino acids sidechains
+######################################
+donor mask :GLN@OE1
+donor mask :GLN@NE2
+donor mask :ASN@OD1
+donor mask :ASN@ND2
+donor mask :TYR@OH
+donor mask :ASP@OD1
+donor mask :ASP@OD2
+donor mask :GLU@OE1
+donor mask :GLU@OE2
+donor mask :SER@OG
+donor mask :THR@OG1
+donor mask :HIS@ND1
+donor mask :HIE@ND1
+donor mask :HID@NE2
+######################################
+#-- Donors from nucleotides: DNA/RNA
+######################################
+###### RC/DC #######
+donor mask :DC@P
+donor mask :DC@O1P
+donor mask :DC@O2P
+donor mask :DC@O5'
+donor mask :DC@O4'
+donor mask :DC@N1
+donor mask :DC@N4
+donor mask :DC@N3
+donor mask :DC@O2
+#donor mask :DC@O2'
+donor mask :DC@O3'
+###### RG/DG #######
+donor mask :DG@P
+donor mask :DG@O1P
+donor mask :DG@O2P
+donor mask :DG@O5'
+donor mask :DG@O4'
+donor mask :DG@N9
+donor mask :DG@N7
+donor mask :DG@O6
+donor mask :DG@N1
+donor mask :DG@N2
+donor mask :DG@N3
+#donor mask :DG@O2'
+donor mask :DG@O3'
+###### RU/DT #######
+donor mask :DT@P
+donor mask :DT@O1P
+donor mask :DT@O2P
+donor mask :DT@O5'
+donor mask :DT@O4'
+donor mask :DT@N1
+donor mask :DT@O4
+donor mask :DT@N3
+donor mask :DT@O2
+#donor mask :DT@O2'
+donor mask :DT@O3'
+###### RA/DA #######
+donor mask :DA@P
+donor mask :DA@O1P
+donor mask :DA@O2P
+donor mask :DA@O5'
+donor mask :DA@O4'
+donor mask :DA@N9
+donor mask :DA@N7
+donor mask :DA@N6
+donor mask :DA@N1
+donor mask :DA@N3
+#donor mask :DA@O2'
+donor mask :DA@O3'
+
+#######################################
+#--Acceptors from animo acid sidechains
+#######################################
+acceptor mask  :ASN@ND2 :ASN@HD21
+acceptor mask  :ASN@ND2 :ASN@HD22
+acceptor mask  :TYR@OH  :TYR@HH
+acceptor mask  :GLN@NE2 :GLN@HE21
+acceptor mask  :GLN@NE2 :GLN@HE22
+acceptor mask  :TRP@NE1 :TRP@HE1
+acceptor mask  :LYS@NZ  :LYS@HZ1
+acceptor mask  :LYS@NZ  :LYS@HZ2
+acceptor mask  :LYS@NZ  :LYS@HZ3
+acceptor mask  :SER@OG  :SER@HG
+acceptor mask  :THR@OG1 :THR@HG1
+acceptor mask  :ARG@NH2 :ARG@HH21
+acceptor mask  :ARG@NH2 :ARG@HH22
+acceptor mask  :ARG@NH1 :ARG@HH11
+acceptor mask  :ARG@NH1 :ARG@HH12
+acceptor mask  :ARG@NE  :ARG@HE
+acceptor mask  :HIS@NE2 :HIS@HE2
+acceptor mask  :HIE@NE2 :HIE@HE2
+acceptor mask  :HID@ND1 :HID@HD1
+acceptor mask  :HIP@ND1,NE2 :HIP@HE2,HD1
+
+#######################################
+#--Acceptors from nucleotides
+#######################################
+acceptor mask  :DC@N4   :DC@H41
+acceptor mask  :DC@N4   :DC@H42
+#acceptor mask  :RC@O2'  :RC@HO'2
+
+acceptor mask  :DG@N1   :DG@H1
+acceptor mask  :DG@N2   :DG@H21
+acceptor mask  :DG@N2   :DG@H22
+#acceptor mask  :RG@O2'  :RG@HO'2
+
+acceptor mask  :DT@N3   :DT@H3
+#acceptor mask  :DT@O2'  :DT@HO'2
+
+acceptor mask  :DA@N6   :DA@H61
+acceptor mask  :DA@N6   :DA@H62
+#acceptor mask  :RA@O2'  :RA@HO'2
+#############################################################################################
+##-- NOTE: Pay particular attention to hydrogen associoted with 2'-OH in RNA, the "mask name"
+##--       must always be HO'2 other than HO2' or others , otherwise, it cannot be recognized.
+#############################################################################################
+
+###########################################################
+#-- Backbone donors and acceptors for amino acid sidechains
+#   N-H for prolines do not exist so are not in the mask
+###########################################################
+donor mask @O
+acceptor mask  :1-6,8-14,16-78,80-99,100-105,107-113,115-177,179-198@N :2-98,101-179@H
+#############################################
+#-Terminal residues have different atom names
+#############################################
+donor mask @OXU
+acceptor mask :1@N :1@H1
+acceptor mask :1@N :1@H2
+acceptor mask :1@N :1@H3
+
+############################################################################################
+#--Specify distance and angle cutoff of H-bond, in this case, set to 3.5 and 120 repectively.
+#--To print out information related to time series, keyword "series" is to be included.
+############################################################################################
+hbond distance 3.5 angle 120 print .05 series hbt
+
+############################################################################################
+#--In addition, water or/and ions interacting with a particular donor or acceptor can be also
+#--keeped track of. Refer to documentation of hydrogen bonding facility in AmberTools manual!
+############################################################################################
+#hbond distance 3.5 angle 120 solventneighbor 6 solventdonor WAT O solventacceptor WAT O H1 solventacceptor WAT O H2
+#hbond distance 3.5 angle 120 solventneighbor 6 solventdonor Na+ Na+ solventacceptor Na+ Na+ Na+
+#hbond distance 3.5 angle 120 solventneighbor 6 solventdonor Cl- Cl- solventacceptor Cl- Cl- Cl-

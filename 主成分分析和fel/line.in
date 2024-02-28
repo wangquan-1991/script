@@ -1,0 +1,6 @@
+trajin md2.nc 25001 75000 1
+#readdata PCA-CAP.ppj
+#hist PCA-CAP.ppj:2 PCA-CAP.ppj:3 free 310 out wwwwwww.dat bins 36
+readdata rmsd_ABL.dat 
+readdata dist1_wt.dat
+hist dist1_wt.dat:2 rmsd_ABL.dat:2 free 310 out wt_fel1.dat bins 40

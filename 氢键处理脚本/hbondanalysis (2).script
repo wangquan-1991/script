@@ -1,0 +1,10 @@
+BEGIN {
+  FS="[_@]"
+}
+      {
+	if($2<=431 && $4>=432) 
+		print $0
+	else if($2>=432 && $4<=431)
+		print $0
+}
+#awk -f awk_script hbond.dat > hbondanalysis.out

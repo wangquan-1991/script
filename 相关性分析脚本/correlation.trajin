@@ -1,0 +1,3 @@
+trajin md60_cdj4.mdcrd
+matrix correl name corr @CA out corrca_Cdj4.dat byres
+

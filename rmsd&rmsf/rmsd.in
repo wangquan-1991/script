@@ -1,0 +1,10 @@
+trajin md1.mdcrd
+trajin md2.mdcrd
+trajin md3.mdcrd
+trajin md4.mdcrd
+trajin md5.mdcrd
+trajin md6.mdcrd
+trajin md7.mdcrd
+trajin md8.mdcrd
+reference complex_watted.pdb
+rms reference out rmsd_40ns.dat :1-272@N,CA,C time 2.0
