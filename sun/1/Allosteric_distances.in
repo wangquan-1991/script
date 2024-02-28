@@ -1,0 +1,18 @@
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+trajin /home/smzlovells/Allosteric_CYP2D6/3_single/1/2D6_prod.nc
+distance allosteric_gate1 :51 :219 out allosteric_sig_gate1.dat
+run
+
+clear all
+
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+trajin /home/smzlovells/Allosteric_CYP2D6/3_single/2/2D6_prod.nc
+distance allosteric_gate2 :51 :219 out allosteric_sig_gate2.dat
+run
+
+clear all
+
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+trajin /home/smzlovells/Allosteric_CYP2D6/3_single/3/2D6_prod.nc
+distance allosteric_gate3 :51 :219 out allosteric_sig_gate3.dat
+run

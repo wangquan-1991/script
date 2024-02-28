@@ -1,0 +1,29 @@
+heating
+ &cntrl
+  imin=0, irest=0, ntx=1, ntb=1,
+  cut=10.0, ntr=1, ntc=2, ntf=2,
+  tempi=0.0, temp0=310.0,
+  ntt=3, gamma_ln=1.0, nstlim=50000, dt=0.002,
+  ntpr=1000, ntwx=1000, ntwr=1000,
+  ntr=1, restraint_wt=10.0, restraintmask=':1-774', 
+  nmropt=1,
+ /
+ &wt
+  type='TEMP0', istep1=0, istep2=10000, value1=0, value2=50,
+ /
+ &wt
+  type='TEMP0', istep1=10001, istep2=20000, value1=50, value2=100,
+ /
+ &wt
+  type='TEMP0', istep1=20001, istep2=30000, value1=100, value2=200,
+ /
+ &wt
+  type='TEMP0', istep1=30001, istep2=40000, value1=200, value2=300,
+ /
+ &wt
+  type='TEMP0', istep1=40001, istep2=50000, value1=300, value2=310,
+ /
+ &wt
+  type='END'
+ /
+

@@ -1,0 +1,6 @@
+parm initial_MD_solvions.prmtop
+trajin 5.84.pdb
+center :217
+image center familiar
+trajout 5.84_c.pdb
+run

@@ -1,0 +1,22 @@
+
+# Step 1. Generate average structure.
+# RMS-Fit to first frame to remove global translation/rotation.
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+trajin /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/2D6_prod_300.nc
+rms first (:1-499)&!@H=
+average crdset AVG
+run
+
+# Step 2. RMS-Fit to average structure. Calculate covariance matrix.
+# Save the fit coordinates.
+rms ref AVG (:1-499)&!@H=
+matrix covar name MyMatrix (:1-499)&!@H=
+createcrd CRD1
+run
+
+# Step 3. Diagonalize matrix.
+
+runanalysis diagmatrix MyMatrix vecs 3 name MyEvecs
+
+# Step 4. Project saved fit coordinates along eigenvectors 1 and 2
+crdaction CRD1 projection evecs MyEvecs (:1-499)&!@H= out project.dat beg 1 end 2

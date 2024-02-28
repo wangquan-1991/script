@@ -1,0 +1,45 @@
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+
+trajin /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/2D6_prod_600.nc
+
+strip :PA,PC,OL
+
+trajout 2454.pdb pdb start 2454 end 2454
+
+run
+
+clear all
+
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+
+trajin /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/2D6_prod_300.nc
+
+strip :PA,PC,OL
+
+trajout 109.pdb pdb start 109 end 109
+
+run
+
+clear all
+
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+
+parmstrip :PA,PC,OL
+
+parmwrite out strip_mem.parm7
+
+clear all
+
+parm strip_mem.parm7
+
+trajin 2454.pdb 
+trajin 109.pdb
+
+center :217
+
+image center familiar
+
+trajout 2454_c.pdb pdb start 1 end 1
+trajout 109_c.pdb pdb start 2 end 2
+
+run

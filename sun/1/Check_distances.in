@@ -1,0 +1,9 @@
+parm initial_MD_solvions.prmtop
+
+trajin 2D6_prod.nc
+
+distance D1_OH @7965 @8008 out D1_OH.dat
+distance D1_NH @7965 @8004 out D1_NH.dat
+distance 2b_D1_D2 :499 :500 out 2b_D1_D2.dat
+distance 2c_D1_D3 :499 :501 out 2c_D1_D3.dat
+run

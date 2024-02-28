@@ -1,0 +1,15 @@
+parm /home/zqc3070/smz/IRF4/Wide/dai.prmtop
+trajin /home/zqc3070/smz/IRF4/Wide/IRF4_prod.nc
+hbond HB out hbond_do.dat :1-518 angle 120 dist 3.5 donormask :518 series uuseries CFF_do.dat avgout hbavg_do.dat printatomnum
+run
+
+clear all
+
+parm /home/zqc3070/smz/IRF4/Wide/dai.prmtop
+trajin /home/zqc3070/smz/IRF4/Wide/IRF4_prod.nc
+hbond HB out hbond_acc.dat :1-518 angle 120 dist 3.5 acceptormask :518 series uuseries CFF_acc.dat avgout hbavg_acc.dat printatomnum
+run
+
+# Perform lifetime analysis
+#runanalysis lifetime HB[solutehb] out lifehb.dat
+#run

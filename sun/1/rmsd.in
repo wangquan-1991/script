@@ -1,0 +1,30 @@
+
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+trajin /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/2D6_prod_300.nc
+strip :PA,PC,OL,WAT
+rms first out 1O-300_rmsd.dat (:42-499)&!@H=
+run
+
+clear all
+
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+trajin /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/2D6_prod_600.nc
+strip :PA,PC,OL,WAT
+rms first out 1O-600_rmsd.dat (:42-499)&!@H=
+run
+
+clear all
+
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+trajin /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/To_600_2/2D6_prod_600_2.nc
+strip :PA,PC,OL,WAT
+rms first out 1O-601_rmsd.dat (:42-499)&!@H=
+run
+
+clear all
+
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop
+trajin /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/To_600_3/2D6_prod_600_3.nc
+strip :PA,PC,OL,WAT
+rms first out 1O-602_rmsd.dat (:42-499)&!@H=
+run

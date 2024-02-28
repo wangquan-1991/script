@@ -1,0 +1,19 @@
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+trajin /home/smzlovells/Allosteric_CYP2D6/3_single/1/2D6_prod.nc
+center @CA mass
+matrix correl name corr @CA out Sig_corr_2D6_1.dat byres
+run
+clear all
+
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+trajin /home/smzlovells/Allosteric_CYP2D6/3_single/2/2D6_prod.nc
+center @CA mass
+matrix correl name corr @CA out Sig_corr_2D6_2.dat byres
+run
+clear all
+
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+trajin /home/smzlovells/Allosteric_CYP2D6/3_single/3/2D6_prod.nc
+center @CA mass
+matrix correl name corr @CA out Sig_corr_2D6_3.dat byres
+run

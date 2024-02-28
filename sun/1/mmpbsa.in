@@ -1,0 +1,18 @@
+#ante-MMPBSA.py -p per_min_CFF_7_1.prmtop -c cpx.prmtop -r 1A2.prmtop -l CFF.prmtop -s :WAT,PA,PC,OL,Cl- -m :1-517
+Input file for running PB and GB
+&general
+   endframe=51, 
+   verbose=2, keep_files=0,
+#  entropy=1,
+/
+&gb
+  igb=2, saltcon=0.000
+/
+&pb
+  inp=2, radiopt=0,
+  istrng=0.000, 
+/
+&decomp
+  idecomp=2, dec_verbose=3,
+  print_res="1-147"
+/

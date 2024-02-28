@@ -1,0 +1,17 @@
+parm /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/initial_MD_solvions.prmtop [inp]
+
+loadcrd /home/smzlovells/CYP2D6/CHARMM-GUI/manual_O_5A/2D6_prod_300.nc name crd1
+
+crdaction crd1 average avg.pdb @C,CA,N
+
+parm avg.pdb
+
+reference avg.pdb parm avg.pdb
+
+crdaction crd1 rms (:1-497)&@C,CA,N ref avg.pdb
+
+crdaction crd1 atomicfluct ref avg.pdb out RMSF.dat (:1-497)&@C,CA,N byres
+
+crdaction crd1 rms first (:1-497)&@C,CA,N out RMSD.dat 
+
+run

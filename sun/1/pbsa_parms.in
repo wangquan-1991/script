@@ -1,0 +1,27 @@
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+
+parmstrip :499-16281
+
+parmwrite out pro.prmtop
+
+run
+
+clear all
+
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+
+parmstrip :1-498,500-16281
+
+parmwrite out dex.prmtop
+
+run
+
+clear all
+
+parm /home/smzlovells/Allosteric_CYP2D6/3_single/initial_MD_solvions.prmtop
+
+parmstrip :500-16281
+
+parmwrite out cpx.prmtop
+
+run

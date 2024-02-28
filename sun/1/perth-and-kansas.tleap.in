@@ -1,0 +1,13 @@
+source leaprc.protein.ff19SB
+source leaprc.gaff
+source leaprc.water.tip3p
+
+a = loadpdb perth-and-kansas.pdb
+
+solvatebox a TIP3PBOX {5 5 5}
+addions a Na+ 0
+addions a Cl- 0
+
+saveamberparm a perth-and-kansas.prmtop perth-and-kansas.inpcrd
+savepdb a perth-and-kansas_ions.pdb
+quit
